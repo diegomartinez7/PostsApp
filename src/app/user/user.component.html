@@ -1,0 +1,38 @@
+<h1 class="text-white">Conoce más sobre {{User.username}}</h1>
+<div class="jumbotron mt-4" style="background: rgba(255, 255, 255, 0.699);">
+    <div class="list-group list-group-horizontal" id="acciones" role="tablist">
+        <a class="list-group-item list-group-item-action list-group-item-white" id="accionInsertar" data-toggle="list" href="#insertar" role="tab" aria-controls="profile">Información del usuario</a>
+        <a class="list-group-item list-group-item-action list-group-item-light" id="accionActualizar" data-toggle="list" href="#actualizar" role="tab" aria-controls="posts">Publicaciones de {{User.username}}</a>
+    </div>
+    <div class="col-11 mt-5 ml-auto mr-auto">
+        <div class="tab-content" id="accionesContenido">
+            <div class="tab-pane fade" id="insertar" role="tabpanel" aria-labelledby="accionInsertar">
+                <figure class="text-center">
+                    <img src="assets/img/user_icon.png" alt="" class="w-25 mb-3">
+                    <h3>Nombre: <span class="text-info">{{User.name}}</span></h3>
+                </figure>
+                <hr>
+                <h4 class="fas fa-user d-block"> Nombre de usuario: <span class="text-info">{{User.username}}</span></h4>
+                <h4 class="fas fa-at d-block"> Correo electrónico: <span class="text-info">{{User.email}}</span></h4>
+                <h4 class="fas fa-map-marked-alt d-block"> Dirección: <span class="text-info">{{direccion()}}</span></h4>
+            </div>
+            <div class="tab-pane fade" id="actualizar" role="tabpanel" aria-labelledby="accionActualizar">
+                <div class="col">
+                    <div class="card shadow text-dark bg-light m-4" *ngFor="let p of ArrayPosts; let i = index">
+                        <div class="card-body bg-white">
+                            <h3 class="text-info fas fa-user-secret"> {{User.name+" - "+User.username}}</h3>
+                            <span class="badge text-dark ml-5 p-2" style="background-color: rgba(76, 105, 167, 0.459);">Publicación: {{i+1}}</span>
+                            <hr>
+                            <h5 class="card-title">"{{p.title.toUpperCase()}}"</h5>
+                            <p><em>Publicado recientemente</em></p>
+                            <p class="card-text mt-4 mr-4 ml-4">{{p.body}}</p>
+                        </div>
+                        <button (click)="navegarComentarios(p.id)" class="btn btn-block btn-light">
+                            <small class="text-muted"><i class="fas fa-comments"></i> Ver comentarios sobre esta publicación ({{comentarios(p.id)}})</small>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

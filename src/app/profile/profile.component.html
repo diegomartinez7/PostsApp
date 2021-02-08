@@ -1,0 +1,26 @@
+<h1 class="text-white">¡Visita el perfil de quienes son parte de nuestra comunidad!</h1>
+<div class="jumbotron mt-4" style="background: rgba(255, 255, 255, 0.699);">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col" *ngFor="let usuario of ArrayUsers; let i = index">
+            <div class="card mb-3 shadow" style="max-width: 500px; background-color: rgba(84, 113, 240, 0.103);">
+                <div class="row g-0">
+                <div class="col-md-5">
+                    <img src="assets/img/user_red.png" alt="..." class="w-100 h-100" *ngIf="i%2==0">
+                    <img src="assets/img/user_blue.png" alt="..." class="w-100 h-100" *ngIf="i%2==1">
+                </div>
+                <div class="col-md-7">
+                    <div class="card-body">
+                        <a (click)="navegarUsuario(usuario.id)" class="text-decoration-none" style="cursor: pointer;">
+                            <h5 class="card-title">{{usuario.name}}</h5>
+                        </a>
+                        <p class="card-text text-info">{{usuario.email}}</p>
+                        <p class="card-text">Compañía: <span class="text-info">{{usuario.company.name}}</span></p>
+                        <p class="card-text">Télefono: <span class="text-info">{{usuario.phone}}</span></p>
+                        <p class="card-text"><small class="text-muted">¡Visita mi sitio web! {{usuario.website}}</small></p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

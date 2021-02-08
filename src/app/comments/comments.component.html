@@ -1,0 +1,37 @@
+<h1 class="text-white">Comentarios</h1>
+<div class="jumbotron mt-4" style="background: rgba(255, 255, 255, 0.699);">
+    <div class="d-flex justify-content-between">
+        <button (click)="navegarPosts('-')" class="btn btn-outline-info"><i class="fas fa-arrow-left"></i></button>
+        <h2 class="text-center">Publicación {{numeroPost(User.id, Post.id)}} del usuario {{nombreUsuario()}}</h2>
+        <button (click)="navegarPosts('+')" class="btn btn-outline-info"><i class="fas fa-arrow-right"></i></button>
+    </div>
+    <div class="col">
+        <div class="card text-dark bg-light m-4">
+            <div class="card-body bg-white">
+                <a (click)="navegarUsuario(User.id)" class="text-decoration-none" style="cursor: pointer;">
+                    <h3 class="text-info fas fa-user-secret"> {{User.name}} - {{User.username}}</h3>
+                </a>
+                <hr>
+                <h5 class="card-title">"{{Post.title.toUpperCase()}}"</h5>
+                <p><em>Publicado recientemente</em></p>
+                <p class="card-text mt-4 mr-4 ml-4">{{Post.body}}</p>
+            </div>
+            <small class="text-muted p-2 text-center"><i class="fas fa-comments"></i> Comentarios de esta publicación: {{ArrayComments.length}}</small>
+        </div>
+    </div>
+
+    <div class="row row-cols-1 row-cols-md-2 g-4 ml-5 mr-5">
+        <div class="col" *ngFor="let comentario of ArrayComments; let i = index;">
+            <div class="card shadow border-success mb-3" style="max-width: 430px;">
+                <div class="card-header bg-transparent border-success h4">{{comentario.email}} dijo:</div>
+                <div class="card-body text-success">
+                    <h5 class="card-title">"{{comentario.name}}"</h5>
+                    <p class="card-text text-justify">{{comentario.body}}</p>
+                </div>
+                <div class="card-footer bg-transparent border-success text-center">
+                    <em>Número de comentario: <span class="text-success">{{i+1}}</span></em>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

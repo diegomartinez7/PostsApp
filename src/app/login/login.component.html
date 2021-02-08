@@ -1,0 +1,14 @@
+<div class="container pt-5">
+    <h1 class="text-center mb-4">¡Inicia sesión y comparte tus ideas!</h1>
+    <form class="col-7 p-4 pr-5 pl-5 m-auto shadow" style="border-radius: 30px; background: rgba(45, 60, 83, 0.349);">
+        <label for="correo" class="form-label h3" title="Debe contener al menos 12 caracteres">Correo electrónico</label>
+        <input class="form-control" type="email" placeholder="diego777marz@gmail.com" minlength="12" required #correo>
+        <hr class="bg-dark">
+        <label for="clave" class="form-label h3" title="Debe contener al menos 8 caracteres">Contraseña</label>
+        <input class="form-control" type="password" minlength="8" required #clave>
+        <hr class="bg-dark">
+        <div class="text-center">
+            <button (click)="comprobarCuenta(correo.value, clave.value)" class="btn-dark btn-lg col-7">Comenzar</button>
+        </div>
+    </form>
+</div>

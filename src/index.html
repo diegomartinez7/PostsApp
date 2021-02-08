@@ -6,8 +6,24 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://kit.fontawesome.com/78e29341ce.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 <body>
   <app-root></app-root>
+
+  <script type="text/javascript">
+    var posicionPrevia = window.pageYOffset;
+    window.onscroll = function() {
+        var posicionActual = window.pageYOffset;
+        if(posicionPrevia > posicionActual){
+            document.querySelector("nav").style.top = "0";
+        }
+        else {
+            document.querySelector("nav").style.top = "-70px";
+        }
+        posicionPrevia = posicionActual;
+    }
+  </script>
 </body>
 </html>

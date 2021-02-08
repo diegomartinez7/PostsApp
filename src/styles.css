@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    /*max-height: 200vh;*/
+    background: linear-gradient(to top, rgba(141, 141, 240, 0.61), rgba(48, 128, 207, 0.5)) no-repeat center center fixed;
+    padding-top: 60px;
+}
+
+nav{
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    transition: top 1.3s !important;
+    transition-property: top !important;
+    transition-duration: 1.3s !important;
+    transition-timing-function: ease !important;
+    transition-delay: 0s !important;
+    z-index: 1;
+}
